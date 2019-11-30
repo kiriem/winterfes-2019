@@ -46,7 +46,7 @@ String sc7textList[] = {
     "Clap Your Hands!!",
     "[BAND TEAM]\nAika Yoshino Sayaka Ayumi Sae\nKaigen Sou Kazune Neji",
     "",
-    "[DANCE TEAM]\n\nChika　Reina　Momoko\nYumika　Natsumi Fukino Shuko",
+    "[DANCE TEAM]\nChika　Reina　Momoko\nYumika　Natsumi Fukino Shuko",
     "[Genie]\nTakami",
     "[Genie]\nKouki",
     "[Genie]\nMarumo",
@@ -56,11 +56,11 @@ String sc7textList[] = {
     "最高の友達",
     "See You Next Stage!"
 };
-
+　 
 int sc7textFlag = 0;
 
 PFont jpFont;
-float fontSize = 100;
+float fontSize = 50;
 
 
 //シーン9
@@ -166,7 +166,26 @@ void draw() {
   }else if(scene == 5){
     
     //シーン5: 城
-    image(sc5movie, 0, 0, width, height);
+    background(0); 
+    //sc5movie.width = width;
+    //sc5movie.height = height;
+
+    fill(255,255,255);
+    sc5movie.read();
+    sc5movie.loadPixels();
+    for ( int i = 0; i < height; i=i+10 ) {
+      beginShape();
+      for ( int j = 0; j < width; j++ ) {
+        color c1 = sc5movie.get(j, i);
+        stroke(255);
+        strokeWeight(1);
+        vertex(j, i+(red(c1)+green(c1)+blue(c1))/25);
+      }
+      endShape();
+    }
+    
+    
+    //image(sc5movie, 0, 0, width, height);
   
   
   }else if(scene == 6){
@@ -308,10 +327,10 @@ void keyPressed(){
     }
     
     if(sc7textFlag == 11){
-      fontSize = 200;
+      fontSize = 80;
       
     }else{
-      fontSize = 100;
+      fontSize = 50 ;
     }
     jpFont = createFont("HiraKakuPro-W3", fontSize);
     
