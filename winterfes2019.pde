@@ -1,11 +1,3 @@
-/*
-
-SCENE
-0: 背景真っ暗, 待つモード
-1: 1曲目, ピラミッド
-
-*/
-
 //共通ライブラリ
 import processing.video.*;
 import ddf.minim.*;
